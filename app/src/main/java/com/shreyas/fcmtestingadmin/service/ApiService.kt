@@ -1,4 +1,4 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.service
 
 import com.shreyas.fcmtestingadmin.Noti.NotiResponse
 import com.shreyas.fcmtestingadmin.Noti.NotifiactionModel

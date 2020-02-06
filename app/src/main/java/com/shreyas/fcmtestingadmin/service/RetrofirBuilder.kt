@@ -1,4 +1,4 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.service
 
 import android.util.Log
 import com.google.gson.GsonBuilder
@@ -23,7 +23,9 @@ object RetrofirBuilder {
     const val BASE_URL = "https://fcm.googleapis.com/"
 
     val gson = GsonBuilder()
-        .registerTypeAdapter(HttpUrl::class.java, UrlDeserializer())
+        .registerTypeAdapter(HttpUrl::class.java,
+            UrlDeserializer()
+        )
         .create()
 
     val retrofitBuilder: Retrofit.Builder by lazy {
@@ -43,7 +45,10 @@ object RetrofirBuilder {
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(invoke {
                 chain: Interceptor.Chain ->
-                chain.proceed(getRequest(chain)!!)
+                chain.proceed(
+                    getRequest(
+                        chain
+                    )!!)
             }).addNetworkInterceptor(loggingInterPretor)
             .build()
         return okHttpClient
@@ -65,7 +70,7 @@ object RetrofirBuilder {
         return null
     }
 
-    val apiService:ApiService by lazy {
+    val apiService: ApiService by lazy {
         retrofitBuilder.build()
             .create(ApiService::class.java)
     }

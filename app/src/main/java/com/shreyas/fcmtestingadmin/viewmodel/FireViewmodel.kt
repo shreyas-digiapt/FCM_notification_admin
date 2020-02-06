@@ -1,11 +1,11 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.viewmodel
 
 import android.util.Log
-import android.view.Display
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.shreyas.fcmtestingadmin.model.Model
+import com.shreyas.fcmtestingadmin.repositary.FireRepo
 
 class FireViewmodel : ViewModel() {
 

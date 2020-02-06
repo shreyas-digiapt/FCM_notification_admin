@@ -1,12 +1,13 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.shreyas.fcmtestingadmin.model.Model
+import com.shreyas.fcmtestingadmin.utiels.OnClickItem
+import com.shreyas.fcmtestingadmin.R
 import kotlinx.android.synthetic.main.single_snippet.view.*
 
 class AdminAdpater( private val context: Context) :

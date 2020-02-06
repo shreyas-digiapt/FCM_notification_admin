@@ -1,14 +1,11 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.repositary
 
 import android.util.Log
-import android.view.Display
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.shreyas.fcmtestingadmin.model.Model
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
 
 object FireRepo {
 
@@ -22,8 +19,9 @@ object FireRepo {
             Log.d("test5", "sads:test ${documentSnapshot.size()}")
                 for (document in documentSnapshot) {
                     val token = document.getString("token")
-                    val name = document.id
-                    val model = Model(name, token!!)
+                    val name = document.getString("name")
+                    val model =
+                        Model(name!!, token!!)
                     listData.add(model)
                 }
             mutableList.value = listData

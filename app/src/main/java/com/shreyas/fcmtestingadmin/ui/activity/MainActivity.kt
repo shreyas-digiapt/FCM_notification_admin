@@ -1,4 +1,4 @@
-package com.shreyas.fcmtestingadmin
+package com.shreyas.fcmtestingadmin.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,12 +8,19 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shreyas.fcmtestingadmin.model.Model
+import com.shreyas.fcmtestingadmin.R
+import com.shreyas.fcmtestingadmin.ui.fragment.SendNotiFragment
+import com.shreyas.fcmtestingadmin.adapter.AdminAdpater
+import com.shreyas.fcmtestingadmin.utiels.OnClickItem
+import com.shreyas.fcmtestingadmin.viewmodel.FireViewmodel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), OnClickItem {
+class MainActivity : AppCompatActivity(),
+    OnClickItem {
 
     lateinit var adapter: AdminAdpater
-    lateinit var viewmodel:FireViewmodel
+    lateinit var viewmodel: FireViewmodel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +60,13 @@ class MainActivity : AppCompatActivity(), OnClickItem {
         Toast.makeText(this, model.name, Toast.LENGTH_SHORT).show()
         frame_container.isClickable = true
         val fragTran = supportFragmentManager.beginTransaction()
-        fragTran.add(R.id.frame_container, SendNotiFragment(frame_container, model))
+        fragTran.add(
+            R.id.frame_container,
+            SendNotiFragment(
+                frame_container,
+                model
+            )
+        )
         fragTran.commit()
     }
 
